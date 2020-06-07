@@ -1,0 +1,74 @@
+/* The styles for the elements */
+body, html {
+    height: 100%;
+    font-family: 'Roboto', sans-serif;
+}
+.bg {
+    /* The image used */
+    background-color: #ffffff;
+  
+    /* Full height */
+    height: 25%;
+}
+
+.topnav {
+    overflow: hidden;
+    background-color: #003459 ;
+  }
+  
+  .topnav a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none !important;
+    font-size: 17px;
+  }
+  
+  .topnav a:hover {
+    color: white;
+  }
+  
+  .topnav a.active {
+    background-color: #003459;
+    color: white;
+  }
+
+  .linkGroup {
+      margin-left: 21%;
+  }
+
+  .welcomeText {
+      /* color: #003459; */
+      padding-top: 2.5em;
+  }
+
+  .benefits {
+      background-color: #003459;
+      height: 25%;
+  }
+
+  .benefitsText {
+    padding-top: 5em;
+      color: white;
+  }
+
+  .form-join{
+      border-radius: 10px;
+      color:white;
+      background-color: #003459;
+      padding: 5em;
+  }
+
+ul {
+    list-style-type: none;
+}
+
+.vertical-center {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}

@@ -1,0 +1,38 @@
+body, html {
+    height: 100%;
+    font-family: 'Roboto', sans-serif;
+}
+
+.sidebar {
+    margin: 0;
+    padding: 0;
+    width: 200px;
+    background-color: #003459;
+    position: fixed;
+    height: 100%;
+    overflow: auto;
+}
+
+.sidebar p {
+    display: block;
+    color: white;
+    padding: 16px;
+}
+
+.sidebar a {
+    display: block;
+    color: white;
+    padding: 16px;
+    text-decoration: none !important;
+}
+
+.sidebar a:hover {
+    background-color: white;
+    color: #003459;
+}
+
+div.content {
+    margin-left: 200px;
+    padding: 1px 16px;
+    height: 1000px;
+}
