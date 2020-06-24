@@ -1,2 +1,0 @@
-Facut Front End la meniu, change account, make account.
-Bug: cand dau la make account,confirm, cand intru in change account, data apare cum trebuie, dar dupa refresh ora se modifica la 00:00:00 
