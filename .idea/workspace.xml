@@ -1,7 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="deede351-15b9-4415-a671-bc8963b61f9d" name="Default Changelist" comment="" />
+    <list default="true" id="deede351-15b9-4415-a671-bc8963b61f9d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/EditUserServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/EditUserServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/MenuSelectionServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/MenuSelectionServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/util/Util.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/util/Util.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/persistence.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/business/Account.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/business/Transaction.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/business/TransactionPK.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/business/User.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controllers/AuthenticationServlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controllers/EditUserServlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controllers/ManageAccountsServlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controllers/MenuSelectionServlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controllers/NewBankAccountServlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controllers/NotificationsServlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controllers/SelectAuthenticationMethodServlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controllers/StatisticsServlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controllers/TransferServlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/data/AccountDB.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/data/TransactionDB.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/data/UserDB.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/statistics/ExchangedMoney.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/statistics/TransactionData.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/statistics/TransactionFrame.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tags/WarnIfErrorTag.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/util/AccountUtil.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/util/DBUtil.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/util/Data.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/util/DateUtil.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/util/ExchangedMoney.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/util/TransactionUtil.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/util/Util.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/util/ValidationUtil.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -38,12 +75,8 @@
       </list>
     </option>
   </component>
-  <component name="MavenImportPreferences">
-    <option name="importingSettings">
-      <MavenImportingSettings>
-        <option name="importAutomatically" value="true" />
-      </MavenImportingSettings>
-    </option>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1bZs49MIk9QIC9Yzsja5M2AZNZ7" />
   <component name="ProjectViewState">
@@ -54,6 +87,7 @@
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../BankingApplication - Main" />
@@ -64,7 +98,7 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="configurable.group.tools" />
@@ -76,18 +110,6 @@
       <recent name="D:\Facultate\An 2\Sem 2\Elemente Avansate de Programare\Proiect\BankingApplication - Copy\src\main" />
       <recent name="D:\Facultate\An 2\Sem 2\Elemente Avansate de Programare\Proiect\BankingApplication - Copy\src\main\java" />
     </key>
-  </component>
-  <component name="ServiceViewManager">
-    <option name="viewStates">
-      <list>
-        <serviceView>
-          <treeState>
-            <expand />
-            <select />
-          </treeState>
-        </serviceView>
-      </list>
-    </option>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -138,11 +160,12 @@
       <workItem from="1590060558096" duration="844000" />
       <workItem from="1590096193897" duration="1326000" />
       <workItem from="1590133390053" duration="126000" />
+      <workItem from="1593197792282" duration="1594000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="2" />
   </component>
   <component name="WindowStateProjectService">
     <state x="361" y="77" key="#Assign_Data_Sources" timestamp="1589355582484">
@@ -174,32 +197,32 @@
     </state>
     <state x="594" y="214" key="FileChooserDialogImpl/0.0.1536.834@0.0.1536.834" timestamp="1590133504979" />
     <state x="743" y="284" width="735" height="484" key="FileChooserDialogImpl/0.27.1920.1000@0.27.1920.1000" timestamp="1589923526640" />
-    <state width="1493" height="201" key="GridCell.Tab.0.bottom" timestamp="1590060916105">
+    <state width="1493" height="194" key="GridCell.Tab.0.bottom" timestamp="1593198410303">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state width="1493" height="201" key="GridCell.Tab.0.bottom/0.0.1536.834/1920.0.1280.994@0.0.1536.834" timestamp="1589654545321" />
-    <state width="1493" height="201" key="GridCell.Tab.0.bottom/0.0.1536.834@0.0.1536.834" timestamp="1590060916105" />
+    <state width="1493" height="194" key="GridCell.Tab.0.bottom/0.0.1536.834@0.0.1536.834" timestamp="1593198410303" />
     <state width="1493" height="223" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1588852160775" />
     <state width="1874" height="154" key="GridCell.Tab.0.bottom/0.27.1920.1000@0.27.1920.1000" timestamp="1589977027676" />
-    <state width="1493" height="201" key="GridCell.Tab.0.center" timestamp="1590060916105">
+    <state width="1493" height="194" key="GridCell.Tab.0.center" timestamp="1593198410303">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state width="1493" height="201" key="GridCell.Tab.0.center/0.0.1536.834/1920.0.1280.994@0.0.1536.834" timestamp="1589654545321" />
-    <state width="1493" height="201" key="GridCell.Tab.0.center/0.0.1536.834@0.0.1536.834" timestamp="1590060916105" />
+    <state width="1493" height="194" key="GridCell.Tab.0.center/0.0.1536.834@0.0.1536.834" timestamp="1593198410303" />
     <state width="1493" height="223" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1588852160775" />
     <state width="1874" height="154" key="GridCell.Tab.0.center/0.27.1920.1000@0.27.1920.1000" timestamp="1589977027676" />
-    <state width="1493" height="201" key="GridCell.Tab.0.left" timestamp="1590060916105">
+    <state width="1493" height="194" key="GridCell.Tab.0.left" timestamp="1593198410302">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state width="1493" height="201" key="GridCell.Tab.0.left/0.0.1536.834/1920.0.1280.994@0.0.1536.834" timestamp="1589654545321" />
-    <state width="1493" height="201" key="GridCell.Tab.0.left/0.0.1536.834@0.0.1536.834" timestamp="1590060916105" />
+    <state width="1493" height="194" key="GridCell.Tab.0.left/0.0.1536.834@0.0.1536.834" timestamp="1593198410302" />
     <state width="1493" height="223" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1588852160775" />
     <state width="1874" height="154" key="GridCell.Tab.0.left/0.27.1920.1000@0.27.1920.1000" timestamp="1589977027676" />
-    <state width="1493" height="201" key="GridCell.Tab.0.right" timestamp="1590060916105">
+    <state width="1493" height="194" key="GridCell.Tab.0.right" timestamp="1593198410303">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state width="1493" height="201" key="GridCell.Tab.0.right/0.0.1536.834/1920.0.1280.994@0.0.1536.834" timestamp="1589654545321" />
-    <state width="1493" height="201" key="GridCell.Tab.0.right/0.0.1536.834@0.0.1536.834" timestamp="1590060916105" />
+    <state width="1493" height="194" key="GridCell.Tab.0.right/0.0.1536.834@0.0.1536.834" timestamp="1593198410303" />
     <state width="1493" height="223" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1588852160775" />
     <state width="1874" height="154" key="GridCell.Tab.0.right/0.27.1920.1000@0.27.1920.1000" timestamp="1589977027676" />
     <state width="189" height="457" key="HiddenNamespacesPopup" timestamp="1589348113342">
@@ -210,10 +233,10 @@
       <screen x="0" y="27" width="1920" height="1000" />
     </state>
     <state x="493" y="184" width="924" height="684" key="Maven.ArtifactSearchDialog/0.27.1920.1000@0.27.1920.1000" timestamp="1589816862765" />
-    <state x="464" y="160" width="1024" height="845" key="SettingsEditor" timestamp="1589817052188">
-      <screen x="0" y="27" width="1920" height="1000" />
+    <state x="371" y="0" width="1024" height="845" key="SettingsEditor" timestamp="1593197921620">
+      <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="371" y="111" key="SettingsEditor/0.0.1536.834@0.0.1536.834" timestamp="1589209894194" />
+    <state x="371" y="0" key="SettingsEditor/0.0.1536.834@0.0.1536.834" timestamp="1593197921620" />
     <state x="464" y="160" width="1024" height="845" key="SettingsEditor/0.27.1920.1000@0.27.1920.1000" timestamp="1589817052188" />
     <state x="849" y="246" key="com.intellij.ide.util.TipDialog" timestamp="1590133391586">
       <screen x="0" y="0" width="1536" height="834" />

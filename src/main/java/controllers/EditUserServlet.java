@@ -2,7 +2,6 @@ package controllers;
 
 import business.User;
 import data.UserDB;
-import javafx.util.Pair;
 import util.Util;
 import util.ValidationUtil;
 
@@ -14,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.AbstractMap;
 
 @WebServlet("/editUser")
 public class EditUserServlet extends HttpServlet {
@@ -25,7 +25,7 @@ public class EditUserServlet extends HttpServlet {
         HttpSession session = req.getSession();
         User activeUser = (User) session.getAttribute("user");
         String newValue = req.getParameter("newValue");
-        ArrayList<Pair<String, String>> fieldValuePairs = (ArrayList<Pair<String, String>>) session.getAttribute("fieldValuePairs");
+        ArrayList<AbstractMap.SimpleEntry<String, String>> fieldValuePairs = (ArrayList<AbstractMap.SimpleEntry<String, String>>) session.getAttribute("fieldValuePairs");
         String message = "";
         boolean modifiedUser = false;
         int index;
@@ -37,20 +37,20 @@ public class EditUserServlet extends HttpServlet {
                     req.setAttribute("selectedField", selectedField);
                 } else {
                     index = Util.indexOf(fieldValuePairs, selectedField);
-                    fieldValuePairs.set(index, new Pair<>(selectedField, newValue));
+                    fieldValuePairs.set(index, new AbstractMap.SimpleEntry<>(selectedField, newValue));
                     activeUser.setUsername(newValue);
                     modifiedUser = true;
                 }
                 break;
             case "First Name":
                 index = Util.indexOf(fieldValuePairs, selectedField);
-                fieldValuePairs.set(index, new Pair<>(selectedField, newValue));
+                fieldValuePairs.set(index, new  AbstractMap.SimpleEntry<>(selectedField, newValue));
                 activeUser.setFirstName(newValue);
                 modifiedUser = true;
                 break;
             case "Last Name":
                 index = Util.indexOf(fieldValuePairs, selectedField);
-                fieldValuePairs.set(index, new Pair<>(selectedField, newValue));
+                fieldValuePairs.set(index, new  AbstractMap.SimpleEntry<>(selectedField, newValue));
                 activeUser.setLastName(newValue);
                 modifiedUser = true;
                 break;
@@ -64,7 +64,7 @@ public class EditUserServlet extends HttpServlet {
                 }
                 else {
                     index = Util.indexOf(fieldValuePairs, selectedField);
-                    fieldValuePairs.set(index, new Pair<>(selectedField, newValue));
+                    fieldValuePairs.set(index, new  AbstractMap.SimpleEntry<>(selectedField, newValue));
                     activeUser.setPhoneNumber(newValue);
                     modifiedUser = true;
                 }
