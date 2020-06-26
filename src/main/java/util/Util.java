@@ -2,14 +2,13 @@ package util;
 
 import data.AccountDB;
 import data.TransactionDB;
-import javafx.util.Pair;
-
+import java.util.AbstractMap;
 import java.util.ArrayList;
 
 public class Util {
-    public static int indexOf(ArrayList<Pair<String, String>> list, String key) {
+    public static int indexOf(ArrayList<AbstractMap.SimpleEntry<String, String>> list, String key) {
         int i = 0;
-        for (Pair<String, String> p : list) {
+        for (AbstractMap.SimpleEntry<String, String> p : list) {
             if (p.getKey().equals(key))
                 return i;
             i++;
