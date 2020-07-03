@@ -4,6 +4,6 @@
 
 ## Authors
 
-@grigoruta-cosmin - Brainstorming partner and author of most of the frontend and also the part of the backend that was hevily intertwined with the frontend.
+[@grigoruta-cosmin](https://github.com/grigoruta-cosmin) - Brainstorming partner and author of most of the frontend and also the part of the backend that was hevily intertwined with the frontend.
 
-@IoanRazvan - A fair amount of backend and just a tiny bit of frontend.
+[@IoanRazvan](https://github.com/IoanRazvan) - A fair amount of backend and just a tiny bit of frontend.
