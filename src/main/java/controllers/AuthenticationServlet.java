@@ -3,7 +3,6 @@ package controllers;
 import business.User;
 import data.TransactionDB;
 import data.UserDB;
-import util.ValidationUtil;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -47,12 +46,6 @@ public class AuthenticationServlet extends HttpServlet {
         getServletContext().getRequestDispatcher(url).forward(req, resp);
     }
 
-    /**
-     *
-     * @param req the current HttpServletRequest object
-     * @param resp the current HttpServletResponse object
-     * @return true if data entered in the sign in fields corresponds to data of a registered user and false if not
-     */
     private boolean validateSignIn(HttpServletRequest req, HttpServletResponse resp) {
         String username = req.getParameter("username");
         String password = req.getParameter("password");
@@ -77,13 +70,6 @@ public class AuthenticationServlet extends HttpServlet {
         return validDataEntered;
     }
 
-    /**
-     *
-     * @param req the current HttpServletRequest object
-     * @param resp the current HttpServletResponse object
-     * @return true if data entered in the sign up fields is valid, i.e. phone number is valid and unique and username is unique,
-     *         otherwise returns false
-     */
     private boolean validateSignUp(HttpServletRequest req, HttpServletResponse resp) {
         String firstName = req.getParameter("firstName");
         String lastName = req.getParameter("lastName");
@@ -94,10 +80,7 @@ public class AuthenticationServlet extends HttpServlet {
         boolean validDataEntered = true;
         User u = new User(username, firstName, lastName, phoneNumber, password);
 
-        if (!ValidationUtil.validPhoneNumber(phoneNumber)) {
-            message = "Invalid phone number";
-            validDataEntered = false;
-        } else if (UserDB.getUserByUsername(username) != null) {
+        if (UserDB.getUserByUsername(username) != null) {
             message = "Username already taken";
             validDataEntered = false;
         } else if (UserDB.getUserByPhoneNumber(phoneNumber) != null) {

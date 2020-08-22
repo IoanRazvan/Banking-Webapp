@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page isELIgnored="false" %>
 <%@ taglib prefix="bat" uri="/WEB-INF/bankingApplicationTags.tld" %>
@@ -15,7 +15,7 @@
 <div class="container">
     <div class="form-join">
         <h2>Join Us</h2>
-        <form action="authenticate" method="post">
+        <form action="authenticate" method="post" id="signUpForm">
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <input class="form-control" id="firstName" type="text" name="firstName" value="<c:out value ='${user.firstName}'/>" placeholder="First Name" required>
@@ -33,12 +33,12 @@
             <div class="form-group">
                 <input id="password" class="form-control" type="password" name="password" placeholder="Password" required>
             </div>
-            <bat:warnIfError message="${message}"/>
             <button type="submit" class="btn btn-primary">Join</button>
             <input type="hidden" name="action" value="signUp">
         </form>
     </div>
 </div>
+<script src="js/signUp.js" onload="addAlertDiv('${message}');"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
         crossorigin="anonymous"></script>
