@@ -15,26 +15,25 @@
 <div class="container">
     <div class="form-join">
         <h2>Join Us</h2>
-        <form action="authenticate" method="post" id="signUpForm">
+        <form action="signUpVerification" method="post" id="signUpForm">
             <div class="form-row">
                 <div class="form-group col-md-6">
-                    <input class="form-control" id="firstName" type="text" name="firstName" value="<c:out value ='${user.firstName}'/>" placeholder="First Name" required>
+                    <input class="form-control" id="firstName" type="text" name="firstName" value="<c:out value ='${firstName}'/>" placeholder="First Name" required>
                 </div>
                 <div class="form-group col-md-6">
-                    <input class="form-control" id="lastName" type="text" name="lastName" value="<c:out value ='${user.lastName}'/>" placeholder="Last Name" required>
+                    <input class="form-control" id="lastName" type="text" name="lastName" value="<c:out value ='${lastName}'/>" placeholder="Last Name" required>
                 </div>
             </div>
             <div class="form-group">
-                <input id="phoneNumber" class="form-control" type="text" name="phoneNumber" value="<c:out value ='${user.phoneNumber}'/>" placeholder="Phone Number" required>
+                <input id="phoneNumber" class="form-control" type="text" name="phoneNumber" value="<c:out value ='${phoneNumber}'/>" placeholder="Phone Number" required>
             </div>
             <div class="form-group">
-                <input id="username" class="form-control" type="text" name="username" value="<c:out value ='${user.username}'/>" placeholder="Username" required>
+                <input id="username" class="form-control" type="text" name="username" value="<c:out value ='${username}'/>" placeholder="Username" required>
             </div>
             <div class="form-group">
                 <input id="password" class="form-control" type="password" name="password" placeholder="Password" required>
             </div>
             <button type="submit" class="btn btn-primary">Join</button>
-            <input type="hidden" name="action" value="signUp">
         </form>
     </div>
 </div>

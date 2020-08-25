@@ -21,7 +21,6 @@
                 <div class="form-group">
                     <input class="form-control" type="password" name="password" placeholder="Password" required>
                 </div>
-                <input type="hidden" name="action" value="signIn">
                 <bat:warnIfError message="${message}"/>
                 <button type="submit" class="btn btn-primary">Welcome</button>
             </form>

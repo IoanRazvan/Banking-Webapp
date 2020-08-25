@@ -15,24 +15,14 @@ import java.io.IOException;
 public class AuthenticationServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String action = req.getParameter("action");
         String url;
 
-        if (action.equals("signIn")) {
-            boolean successfulSignIn = validateSignIn(req, resp);
-            if (!successfulSignIn)
-                url = "/WEB-INF/JSPs/signIn.jsp";
-            else{
-                req.setAttribute("targetTransaction", TransactionDB.getTransactionsByTargetAccountOwner((User) req.getSession().getAttribute("user")));
-                req.setAttribute("sourceTransaction", TransactionDB.getTransactionsBySourceAccountOwner((User) req.getSession().getAttribute("user")));
-                url = "/WEB-INF/JSPs/statistics.jsp";
-            }
+        if (validateSignIn(req, resp)) {
+            req.setAttribute("targetTransaction", TransactionDB.getTransactionsByTargetAccountOwner((User) req.getSession().getAttribute("user")));
+            req.setAttribute("sourceTransaction", TransactionDB.getTransactionsBySourceAccountOwner((User) req.getSession().getAttribute("user")));
+            url = "/WEB-INF/JSPs/statistics.jsp";
         } else {
-            boolean successfulSignUp = validateSignUp(req, resp);
-            if (!successfulSignUp)
-                url = "/WEB-INF/JSPs/signUp.jsp";
-            else
-                url = "/WEB-INF/JSPs/makeAccount.jsp";
+            url = "/WEB-INF/JSPs/signIn.jsp";
         }
 
         getServletContext().getRequestDispatcher(url).forward(req, resp);
@@ -56,37 +46,6 @@ public class AuthenticationServlet extends HttpServlet {
         else {
             req.setAttribute("username", username);
             req.setAttribute("password", password);
-            req.setAttribute("message", message);
-        }
-
-        return validDataEntered;
-    }
-
-    private boolean validateSignUp(HttpServletRequest req, HttpServletResponse resp) {
-        String firstName = req.getParameter("firstName");
-        String lastName = req.getParameter("lastName");
-        String phoneNumber = req.getParameter("phoneNumber");
-        String username = req.getParameter("username");
-        String password = req.getParameter("password");
-        String message = null;
-        boolean validDataEntered = true;
-        User u = new User(username, firstName, lastName, phoneNumber, password);
-
-        if (UserDB.getUserByUsername(username) != null) {
-            message = "Username already taken";
-            validDataEntered = false;
-        } else if (UserDB.getUserByPhoneNumber(phoneNumber) != null) {
-            message = "This phone number is already registered";
-            validDataEntered = false;
-        }
-
-        if (validDataEntered) {
-            UserDB.insert(u);
-            u = UserDB.getUserByUsername(u.getUsername());
-            req.getSession().setAttribute("user", u);
-            req.setAttribute("isMainAccount", true);
-        } else {
-            req.setAttribute("user", u);
             req.setAttribute("message", message);
         }
 
