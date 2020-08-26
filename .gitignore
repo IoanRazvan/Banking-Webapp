@@ -2,4 +2,4 @@ target/
 .classpath
 .idea/
 .project
-BankingApplication.iml
+*.iml

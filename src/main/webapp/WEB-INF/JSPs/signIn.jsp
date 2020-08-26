@@ -14,7 +14,7 @@
     <div class="container">
         <div class="form-join">
             <h2>LogIn with your credentials</h2>
-            <form action="authenticate" method="post">
+            <form action="signInVerification" method="post">
                 <div class="form-group">
                     <input class="form-control" type="text" name="username" value="<c:out value = '${username}'/>" placeholder="Username" required>
                 </div>

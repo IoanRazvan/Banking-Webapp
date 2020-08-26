@@ -14,39 +14,39 @@ import java.io.IOException;
 public class SignUpVerificationServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String url;
-        if (signedUpSuccessfully(req)) {
-            User newUser = constructUserObjectFromRequestParameters(req);
-            insertNewUserIntoDatabase(newUser);
-            registerUserOfSession(req, newUser);
-            url = "/WEB-INF/JSPs/makeAccount.jsp";
-        } else {
-            setRequestParametersAsRequestAttributes(req);
-            url = "/WEB-INF/JSPs/signUp.jsp";
-        }
-        getServletContext().getRequestDispatcher(url).forward(req, resp);
+        redirectToJsp(req, resp);
     }
 
-    private boolean signedUpSuccessfully(HttpServletRequest req) {
-        return checkForUniqueUsername(req.getParameter("username"), req) && checkForUniquePhoneNumber(req.getParameter("phoneNumber"), req);
+    private void redirectToJsp(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        if (enteredCredentialsAreValid(req))
+            handleSuccessfulSignUp(req, resp);
+        else
+            handleUnsuccessfulSignUp(req, resp);
     }
 
-    private boolean checkForUniqueUsername(String username, HttpServletRequest req) {
+    private boolean enteredCredentialsAreValid(HttpServletRequest req) {
+        return hasEnteredUniqueUsername(req.getParameter("username"), req) && hasEnteredUniquePhoneNumber(req.getParameter("phoneNumber"), req);
+    }
+
+    private boolean hasEnteredUniqueUsername(String username, HttpServletRequest req) {
         if (UserDB.getUserByUsername(username) == null)
             return true;
         registerErrorMessage("The username entered is already registered.", req);
         return false;
     }
 
-    private boolean checkForUniquePhoneNumber(String phoneNumber, HttpServletRequest req) {
+    private boolean hasEnteredUniquePhoneNumber(String phoneNumber, HttpServletRequest req) {
         if (UserDB.getUserByPhoneNumber(phoneNumber) == null)
                 return true;
         registerErrorMessage("The phone number entered is already registered.", req);
         return false;
     }
 
-    private void registerErrorMessage(String message, HttpServletRequest req) {
-        req.setAttribute("message", message);
+    private void handleSuccessfulSignUp(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        User newUser = constructUserObjectFromRequestParameters(req);
+        insertNewUserIntoDatabase(newUser);
+        registerUserAsSessionHolder(req, newUser);
+        getServletContext().getRequestDispatcher("/WEB-INF/JSPs/makeAccount.jsp").forward(req, resp);
     }
 
     private User constructUserObjectFromRequestParameters(HttpServletRequest req) {
@@ -63,12 +63,21 @@ public class SignUpVerificationServlet extends HttpServlet {
         UserDB.insert(newUser);
     }
 
-    private void registerUserOfSession(HttpServletRequest req, User newUser) {
+    private void registerUserAsSessionHolder(HttpServletRequest req, User newUser) {
         req.getSession().setAttribute("user", newUser);
         req.setAttribute("isMainAccount", true);
     }
 
-    private void setRequestParametersAsRequestAttributes(HttpServletRequest req) {
+    private void handleUnsuccessfulSignUp(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        setRequestAttributesForUnsuccessfulSignIn(req);
+        getServletContext().getRequestDispatcher("/WEB-INF/JSPs/signUp.jsp").forward(req, resp);
+    }
+
+    private void registerErrorMessage(String message, HttpServletRequest req) {
+        req.setAttribute("message", message);
+    }
+
+    private void setRequestAttributesForUnsuccessfulSignIn(HttpServletRequest req) {
         req.setAttribute("firstName", req.getParameter("firstName"));
         req.setAttribute("lastName", req.getParameter("lastName"));
         req.setAttribute("phoneNumber", req.getParameter("phoneNumber"));

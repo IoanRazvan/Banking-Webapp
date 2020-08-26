@@ -14,7 +14,7 @@ signUpForm.addEventListener("submit", event => {
 });
 
 function clearPreviousAlerts() {
-    while (submitButton.previousElementSibling.className != "form-group") {
+    while (submitButton.previousElementSibling.className !== "form-group") {
         submitButton.previousElementSibling.remove();
     }
 }
@@ -41,7 +41,7 @@ function createAlertButton() {
     let alertButton = document.createElement("button");
     alertButton.className = "close";
     alertButton.setAttribute("data-dismiss", "alert");
-    alertButton.setAttribute("aria-lable", "Close");
+    alertButton.setAttribute("aria-label", "Close");
     return alertButton;
 }
 
