@@ -6,4 +6,4 @@
 
 [@grigoruta-cosmin](https://github.com/grigoruta-cosmin) - most of the frontend and the part of the backend that was heavily intertwined with the frontend.
 
-[@IoanRazvan](https://github.com/IoanRazvan) - A fair amount of backend and a bit of frontend.
+[@IoanRazvan](https://github.com/IoanRazvan) - fair amount of backend and a bit of frontend.
