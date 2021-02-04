@@ -21,7 +21,6 @@ public class EditUserServlet extends HttpServlet {
     @SuppressWarnings("unchecked")
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String selectedField = req.getParameter("selectedField");
-        System.out.println(selectedField);
         HttpSession session = req.getSession();
         User activeUser = (User) session.getAttribute("user");
         String newValue = req.getParameter("newValue");
@@ -75,7 +74,6 @@ public class EditUserServlet extends HttpServlet {
                 break;
         }
         req.setAttribute("message", message);
-        System.out.println("Aici");
         if (modifiedUser)
             UserDB.update(activeUser);
         getServletContext().getRequestDispatcher("/WEB-INF/JSPs/editUser.jsp").forward(req, resp);

@@ -71,7 +71,7 @@ public class SignInVerificationServlet extends HttpServlet {
     private void handleUnsuccessfulSignIn(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setAttribute("message","Invalid credentials entered.");
         req.setAttribute("username", req.getParameter("username"));
-        forwardRequestAndResponseToUrl(req, resp, "/WEB-INF/JSPs/singIn.jsp");
+        forwardRequestAndResponseToUrl(req, resp, "/WEB-INF/JSPs/signIn.jsp");
     }
 
     private void forwardRequestAndResponseToUrl(HttpServletRequest req, HttpServletResponse resp, String url) throws ServletException, IOException {

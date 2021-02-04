@@ -23,7 +23,6 @@ public class ManageAccountsServlet extends HttpServlet {
 
         if (action.equals("modifySold")) {
             if (validateTransaction(req, resp)) {
-                System.out.println("Valid transaction");
                 Account accountToModify = (Account)req.getAttribute("accountToModify");
                 float amount = (float) req.getAttribute("amount");
                 if (req.getParameter("modifyType").equals("withdraw"))

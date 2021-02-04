@@ -26,12 +26,9 @@ public class NotificationsServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String action = req.getParameter("action");
-        System.out.println(action);
 
         Account source = AccountDB.getAccountById(Integer.parseInt(req.getParameter("sourceId")));
         Account target = AccountDB.getAccountById(Integer.parseInt(req.getParameter("targetId")));
-        System.out.println(req.getParameter("sourceId"));
-        System.out.println(req.getParameter("targetId"));
         String stringData = req.getParameter("date");
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("EEE MMM dd HH:mm:ss zzzz yyyy");
         Date date = null;
@@ -40,12 +37,10 @@ public class NotificationsServlet extends HttpServlet {
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        System.out.println(date);
         String url = "/WEB-INF/JSPs/notifications.jsp";
         TransactionPK trPk = new TransactionPK(source.getAccountId(), target.getAccountId(), date);
         Transaction tr = TransactionDB.getByPrimaryKey(trPk);
         float amount = Float.parseFloat(req.getParameter("amount"));
-        System.out.println(amount);
         if (action.equals("decline")) {
             tr.setStatus("declined");
             TransactionDB.update(tr);

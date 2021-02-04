@@ -26,7 +26,6 @@ public class TransferServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException {
         String option = req.getParameter("option");
-
         if (option != null && option.equals("personal"))
             sendPersonalAccountsTable(req, resp);
         else if (option != null && option.equals("others"))
@@ -114,7 +113,6 @@ public class TransferServlet extends HttpServlet {
             Account targetAccount = AccountDB.getAccountById(Integer.parseInt(req.getParameter("accountId")));
             Account sourceAccount = (Account)req.getAttribute("mainAccount");
             if (targetAccount == null || sourceAccount == null) {
-                System.out.println("hora hora");
                 return;
             }
             float amount = Float.parseFloat(req.getParameter("quantity"));

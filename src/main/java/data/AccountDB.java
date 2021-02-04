@@ -150,10 +150,6 @@ public class AccountDB {
         EntityTransaction trans = em.getTransaction();
         List<Account> accounts = TransactionDB.getAccounts();
 
-            if (accounts == null)
-                System.out.println("IS null");
-            else
-                System.out.println("IS not null");
             if (accounts != null) {
                 for (Account a : accounts) {
                     Float amount = TransactionDB.getRefundMoney(a);

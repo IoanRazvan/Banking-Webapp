@@ -33,7 +33,7 @@
   </context-param>
   <context-param>
     <param-name>applicationUrl</param-name>
-    <param-value>http://localhost:8080/BankingApplication10</param-value>
+    <param-value>http://localhost:8080/BankingApplication</param-value>
   </context-param>
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>

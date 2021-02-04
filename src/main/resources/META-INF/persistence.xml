@@ -12,13 +12,13 @@
         <exclude-unlisted-classes>false</exclude-unlisted-classes>
         <properties>
             <property name="javax.persistence.jdbc.url"
-                      value="jdbc:mysql://bank-app-fmi-eap-do-user-7255096-0.a.db.ondigitalocean.com:25060/defaultdb"/>
+                      value="jdbc:mysql://localhost:3306/banking"/>
             <property name="javax.persistence.jdbc.user"
-                      value="doadmin"/>
+                      value="dbAdmin"/>
             <property name="javax.persistence.jdbc.password"
-                      value="e7retbsw1m22iy7y"/>
+                      value="password"/>
             <property name="javax.persistence.schema-generation.database.action"
-                      value="none"/>
+                      value="create"/>
         </properties>
     </persistence-unit>
 </persistence>
