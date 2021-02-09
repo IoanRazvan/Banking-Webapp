@@ -11,8 +11,12 @@
         <class>business.Transaction</class>
         <exclude-unlisted-classes>false</exclude-unlisted-classes>
         <properties>
+            <!-- For local test using containers -->
             <property name="javax.persistence.jdbc.url"
-                      value="jdbc:mysql://localhost:3306/banking"/>
+                      value="jdbc:mysql://mysqlserver/banking"/>
+            <!-- For local test without using containers -->
+            <!-- <property name="javax.persistence.jdbc.url"
+                      value="jdbc:mysql://localhost:3306/banking"/> -->
             <property name="javax.persistence.jdbc.user"
                       value="dbAdmin"/>
             <property name="javax.persistence.jdbc.password"

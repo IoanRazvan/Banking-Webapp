@@ -2,8 +2,8 @@ DROP DATABASE IF EXISTS banking;
 CREATE DATABASE banking;
 USE banking;
 
-CREATE USER 'dbAdmin'@'localhost' IDENTIFIED BY 'password';
-GRANT ALL PRIVILEGES ON banking.* TO 'dbAdmin'@'localhost';
+CREATE USER 'dbAdmin'@'%' IDENTIFIED BY 'password';
+GRANT ALL PRIVILEGES ON banking.* TO 'dbAdmin'@'%';
 
 CREATE TABLE APP_USER
   (
