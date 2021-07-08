@@ -1,8 +1,8 @@
-let romanianPhoneNumberRegexp = /^07\d{8}$/;
+const romanianPhoneNumberRegexp = /^07\d{8}$/;
 
-let signUpForm = document.getElementById("signUpForm");
-let submitButton = document.querySelector("button[type='submit']");
-let phoneNumberField = document.querySelector("input[name='phoneNumber']");
+const signUpForm = document.getElementById("signUpForm");
+const submitButton = document.querySelector("button[type='submit']");
+const phoneNumberField = document.querySelector("input[name='phoneNumber']");
 
 signUpForm.addEventListener("submit", event => {
     clearPreviousAlerts();

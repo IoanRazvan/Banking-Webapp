@@ -5,32 +5,16 @@
                          http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
   <display-name>Archetype Created Web Application</display-name>
   <servlet>
-    <servlet-name>LogInServlet</servlet-name>
-    <jsp-file>/WEB-INF/JSPs/signIn.jsp</jsp-file>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>LogInServlet</servlet-name>
-    <url-pattern>/logIn</url-pattern>
-  </servlet-mapping>
-  <servlet>
     <servlet-name>SignUpServlet</servlet-name>
     <jsp-file>/WEB-INF/JSPs/signUp.jsp</jsp-file>
   </servlet>
   <servlet-mapping>
     <servlet-name>SignUpServlet</servlet-name>
     <url-pattern>/signUp</url-pattern>
-  </servlet-mapping>r
+  </servlet-mapping>
   <session-config>
     <session-timeout>30</session-timeout>
   </session-config>
-  <context-param>
-    <param-name>EURO_IN_RON</param-name>
-    <param-value>4.5</param-value>
-  </context-param>
-  <context-param>
-    <param-name>DOLLAR_IN_RON</param-name>
-    <param-value>4.2</param-value>
-  </context-param>
   <context-param>
     <param-name>applicationUrl</param-name>
     <param-value>http://localhost:8080/BankingApplication</param-value>

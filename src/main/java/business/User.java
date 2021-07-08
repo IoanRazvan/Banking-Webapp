@@ -1,18 +1,25 @@
 package business;
 
+import validation.UniquePhoneNumber;
+import validation.UniqueUsername;
+import lombok.Data;
+
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Date;
+import java.util.List;
 
+@Data
 @Entity
 @Table(name="APP_USER")
+@UniqueUsername(message = "username already claimed")
+@UniquePhoneNumber(message = "phone number already claimed")
 public class User implements Serializable {
     @Id
-    @Column(name="user_id")
+    @Column(name="id")
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer userId;
+    private Integer id;
 
-    @Column(name="user_name")
+    @Column(name="username", unique = true)
     private String username;
 
     @Column(name="first_name")
@@ -21,15 +28,22 @@ public class User implements Serializable {
     @Column(name="last_name")
     private String lastName;
 
-    @Column(name="phone_number")
+    @Column(name="phone_number", unique = true)
     private String phoneNumber;
 
-    @Column(name="user_password")
+    @Column(name="password")
     private String password;
 
-    public User() {
+    @OneToMany(mappedBy = "owner")
+    private List<Account> accounts;
 
-    }
+    @OneToOne
+    @JoinColumn(name="main_account")
+    private Account mainAccount;
+
+    private boolean enabled = true;
+
+    public User() {}
 
     public User(String username, String firstName, String lastName, String phoneNumber, String password) {
         this.username = username;
@@ -37,58 +51,5 @@ public class User implements Serializable {
         this.lastName = lastName;
         this.phoneNumber = phoneNumber;
         this.password = password;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public Integer getUserId() {
-        return userId;
-    }
-
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setUserId(Integer userId) {
-        this.userId = userId;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    @Override
-    public String toString() {
-        return "User{}";
     }
 }

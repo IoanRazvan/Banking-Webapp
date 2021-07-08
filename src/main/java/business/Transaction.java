@@ -1,5 +1,7 @@
 package business;
 
+import lombok.Data;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
@@ -7,6 +9,7 @@ import java.util.Date;
 @Entity
 @IdClass(TransactionPK.class)
 @Table(name="TRANSACTION")
+@Data
 public class Transaction implements Serializable {
     @Id
     @ManyToOne
@@ -37,45 +40,5 @@ public class Transaction implements Serializable {
         this.targetAccount = targetAccount;
         this.transactionTimestamp = transactionTimestamp;
         this.status = status;
-    }
-
-    public Account getSourceAccount() {
-        return sourceAccount;
-    }
-
-    public Account getTargetAccount() {
-        return targetAccount;
-    }
-
-    public Date getTransactionTimestamp() {
-        return transactionTimestamp;
-    }
-
-    public Float getAmount() {
-        return amount;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setAmount(Float amount) {
-        this.amount = amount;
-    }
-
-    public void setSourceAccount(Account sourceAccount) {
-        this.sourceAccount = sourceAccount;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    public void setTargetAccount(Account targetAccount) {
-        this.targetAccount = targetAccount;
-    }
-
-    public void setTransactionTimestamp(Date transactionTimestamp) {
-        this.transactionTimestamp = transactionTimestamp;
     }
 }
