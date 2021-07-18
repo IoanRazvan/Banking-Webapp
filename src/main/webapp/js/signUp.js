@@ -1,28 +1,26 @@
-const romanianPhoneNumberRegexp = /^07\d{8}$/;
-
 const signUpForm = document.getElementById("signUpForm");
 const submitButton = document.querySelector("button[type='submit']");
-const phoneNumberField = document.querySelector("input[name='phoneNumber']");
+const phoneNumber = document.getElementById("phoneNumber");
 
-signUpForm.addEventListener("submit", event => {
-    clearPreviousAlerts();
-    let phoneNumber = phoneNumberField.value;
-    if (!romanianPhoneNumberRegexp.test(phoneNumber)) {
-        addAlertDiv("Invalid phone number");
-        event.preventDefault();
-    }
+submitButton.addEventListener("click", function () {
+    console.log("hello");
+    if (phoneNumber.validity.patternMismatch)
+        phoneNumber.setCustomValidity("Not a valid romanian phone number");
+    else
+        phoneNumber.setCustomValidity("");
 });
+
+function addAlertDiv(message) {
+    clearPreviousAlerts();
+    if (message) {
+        let alertDiv = createAlertDiv(message);
+        signUpForm.insertBefore(alertDiv, submitButton);
+    }
+}
 
 function clearPreviousAlerts() {
     while (submitButton.previousElementSibling.className !== "form-group") {
         submitButton.previousElementSibling.remove();
-    }
-}
-
-function addAlertDiv(message) {
-    if (message) {
-        let alertDiv = createAlertDiv(message);
-        signUpForm.insertBefore(alertDiv, submitButton);
     }
 }
 
