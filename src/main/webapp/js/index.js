@@ -2,5 +2,5 @@ const exploreAppBtn = document.getElementById("exploreAppBtn");
 
 
 exploreAppBtn.addEventListener("click",  () => {
-    window.location.href = address;
+    window.location.href = "signUp";
 });

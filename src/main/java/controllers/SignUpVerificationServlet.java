@@ -1,6 +1,8 @@
 package controllers;
 
 import business.User;
+import encoders.NoEncryptionEncoder;
+import encoders.PasswordEncoder;
 import mappers.RequestToUserMapper;
 import repository.UserRepository;
 import repository.UserRepositoryImpl;
@@ -18,6 +20,7 @@ import java.io.IOException;
 public class SignUpVerificationServlet extends HttpServlet {
     private UserRepository userRepository = new UserRepositoryImpl();
     private RequestToUserMapper mapper = RequestToUserMapper.getMapper();
+    private PasswordEncoder encoder = new NoEncryptionEncoder();
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -25,6 +28,7 @@ public class SignUpVerificationServlet extends HttpServlet {
         String view = "/WEB-INF/JSPs/makeAccount.jsp";
 
         try {
+            newUser.setPassword(encoder.encode(newUser.getPassword()));
             userRepository.save(newUser);
             req.getSession().setAttribute("user", newUser);
         } catch (ConstraintViolationException e) {
