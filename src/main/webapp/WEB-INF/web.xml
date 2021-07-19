@@ -8,9 +8,17 @@
     <servlet-name>SignUpServlet</servlet-name>
     <jsp-file>/WEB-INF/JSPs/signUp.jsp</jsp-file>
   </servlet>
+  <servlet>
+    <servlet-name>LogInServlet</servlet-name>
+    <jsp-file>/WEB-INF/JSPs/logIn.jsp</jsp-file>
+  </servlet>
   <servlet-mapping>
     <servlet-name>SignUpServlet</servlet-name>
     <url-pattern>/signUp</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>LogInServlet</servlet-name>
+    <url-pattern>/logIn</url-pattern>
   </servlet-mapping>
   <session-config>
     <session-timeout>30</session-timeout>

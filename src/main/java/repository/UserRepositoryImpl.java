@@ -2,14 +2,11 @@ package repository;
 
 import business.User;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.EntityTransaction;
-import javax.persistence.Query;
-
+import javax.persistence.*;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
 
 import static util.EntityManagerFactorySingleton.getEntityManagerFactoryInstance;
 
@@ -35,13 +32,13 @@ public class UserRepositoryImpl implements UserRepository {
     @Override
     public boolean existsByUsername(String username) {
         return exists("select 1 from User u where u.username = :username",
-                Collections.singletonMap("username", (Object) username));
+                Collections.singletonMap("username", username));
     }
 
     @Override
     public boolean existsByPhoneNumber(String phoneNumber) {
         return exists("select 1 from User u where u.phoneNumber = :phoneNumber",
-                Collections.singletonMap("username", (Object) phoneNumber));
+                Collections.singletonMap("username", phoneNumber));
     }
 
     @Override
@@ -68,5 +65,20 @@ public class UserRepositoryImpl implements UserRepository {
         boolean result = query.getResultList().size() == 1;
         em.close();
         return result;
+    }
+
+    @Override
+    public Optional<User> findByUsername(String username) {
+        EntityManager em = emf.createEntityManager();
+        TypedQuery<User> query = em.createQuery("select u from User u where u.username = :username", User.class);
+        query.setParameter("username", username);
+        try {
+            User u = query.getSingleResult();
+            return Optional.of(u);
+        } catch (NoResultException e) {
+            return Optional.empty();
+        } finally {
+            em.close();
+        }
     }
 }
