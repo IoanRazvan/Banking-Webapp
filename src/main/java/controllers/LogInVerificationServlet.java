@@ -27,6 +27,8 @@ public class LogInVerificationServlet extends HttpServlet {
         try {
             User u = retrieveUser(req);
             req.getSession().setAttribute("user", u);
+            if (u.getMainAccount() == null)
+                view = "/WEB-INF/JSPs/makeAccount.jsp";
         } catch (IncorrectPasswordException | UserNotFoundException e) {
             view = "/WEB-INF/JSPs/logIn.jsp";
             req.setAttribute("username", req.getParameter("username"));

@@ -2,33 +2,16 @@ package repository;
 
 import business.User;
 
-import javax.persistence.*;
+import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
+import javax.persistence.Query;
+import javax.persistence.TypedQuery;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 
-import static util.EntityManagerFactorySingleton.getEntityManagerFactoryInstance;
-
-public class UserRepositoryImpl implements UserRepository {
-    private EntityManagerFactory emf = getEntityManagerFactoryInstance();
-    @Override
-    public void save(User u) {
-        EntityManager em = emf.createEntityManager();
-        EntityTransaction trans = em.getTransaction();
-
-        try {
-            trans.begin();
-            em.persist(u);
-            trans.commit();
-        } catch (Exception e) {
-            trans.rollback();
-            throw e;
-        } finally {
-            em.close();
-        }
-    }
-
+public class UserRepositoryImpl extends Repository<User> implements UserRepository {
     @Override
     public boolean existsByUsername(String username) {
         return exists("select 1 from User u where u.username = :username",

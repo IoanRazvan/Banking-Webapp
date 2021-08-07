@@ -3,7 +3,7 @@ package controllers;
 import business.User;
 import encoders.NoEncryptionEncoder;
 import encoders.PasswordEncoder;
-import mappers.RequestToUserMapper;
+import mappers.RequestToObjectMapper;
 import repository.UserRepository;
 import repository.UserRepositoryImpl;
 
@@ -19,7 +19,7 @@ import java.io.IOException;
 @WebServlet("/signUpVerification")
 public class SignUpVerificationServlet extends HttpServlet {
     private UserRepository userRepository = new UserRepositoryImpl();
-    private RequestToUserMapper mapper = RequestToUserMapper.getMapper();
+    private RequestToObjectMapper<User> mapper = RequestToObjectMapper.from(User.class);
     private PasswordEncoder encoder = new NoEncryptionEncoder();
 
     @Override

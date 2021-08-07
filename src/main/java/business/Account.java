@@ -1,13 +1,11 @@
 package business;
 
 import lombok.Data;
-import org.eclipse.persistence.annotations.Direction;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
-import java.util.List;
-import java.util.Set;
+import java.util.GregorianCalendar;
 
 @Entity
 @Table(name="BANK_ACCOUNT")
@@ -32,9 +30,11 @@ public class Account implements Serializable {
     @Column(name="sold")
     private Float sold;
 
-    private boolean enabled;
+    private boolean enabled = true;
 
-    public Account() {}
+    public Account() {
+        creationDate = GregorianCalendar.getInstance().getTime();
+    }
 
     public Account(User owner, Date creationDate, String currency, Float sold) {
         this.owner = owner;
