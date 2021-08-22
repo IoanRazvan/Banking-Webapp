@@ -7,8 +7,10 @@ import encoders.NoEncryptionEncoder;
 import encoders.PasswordEncoder;
 import repository.UserRepository;
 import repository.UserRepositoryImpl;
+import util.HttpUtils;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -16,28 +18,27 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.Optional;
 
-@WebServlet("/logInVerification")
-public class LogInVerificationServlet extends HttpServlet {
-    private UserRepository userRepository = new UserRepositoryImpl();
-    private PasswordEncoder encoder = new NoEncryptionEncoder();
+@WebServlet("/logIn")
+@MultipartConfig
+public class LogInServlet extends HttpServlet {
+    private final UserRepository userRepository = new UserRepositoryImpl();
+    private final PasswordEncoder encoder = new NoEncryptionEncoder();
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String view = "/WEB-INF/JSPs/menu.jsp";
         try {
-            User u = retrieveUser(req);
+            User u = authenticatedUser(req);
             req.getSession().setAttribute("user", u);
             if (u.getMainAccount() == null)
-                view = "/WEB-INF/JSPs/makeAccount.jsp";
+                resp.sendRedirect("openAccount");
+            else
+                resp.sendRedirect("editUser");
         } catch (IncorrectPasswordException | UserNotFoundException e) {
-            view = "/WEB-INF/JSPs/logIn.jsp";
-            req.setAttribute("username", req.getParameter("username"));
-            req.setAttribute("message", e.getMessage());
+            HttpUtils.sendResponse(resp, e.getMessage(), HttpServletResponse.SC_UNAUTHORIZED);
         }
-        getServletContext().getRequestDispatcher(view).forward(req, resp);
     }
     
-    private User retrieveUser(HttpServletRequest req) {
+    private User authenticatedUser(HttpServletRequest req) {
         String username = req.getParameter("username");
         String password = req.getParameter("password");
         Optional<User> user = userRepository.findByUsername(username);
@@ -46,5 +47,13 @@ public class LogInVerificationServlet extends HttpServlet {
                 throw new IncorrectPasswordException("wrong credentials");
         }, () -> { throw new UserNotFoundException("wrong credentials"); });
         return user.get();
+    }
+
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        if (req.getSession().getAttribute("user") == null)
+            getServletContext().getRequestDispatcher("/WEB-INF/Views/logIn.html").forward(req, resp);
+        else
+            resp.sendRedirect("editUser");
     }
 }

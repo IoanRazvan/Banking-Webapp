@@ -12,6 +12,7 @@ public class UniqueUsernameValidator implements ConstraintValidator<UniqueUserna
 
     @Override
     public void initialize(UniqueUsername uniqueUsername) {
+        // Nothing to do
     }
 
     @Override

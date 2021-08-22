@@ -12,6 +12,7 @@ public class UniquePhoneNumberValidator implements ConstraintValidator<UniquePho
 
     @Override
     public void initialize(UniquePhoneNumber uniquePhoneNumber) {
+        // Nothing to do
     }
 
     @Override

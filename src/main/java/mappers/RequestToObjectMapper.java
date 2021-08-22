@@ -12,7 +12,7 @@ public class RequestToObjectMapper<T> {
     private Class<T> associatedClass;
 
     @SuppressWarnings("unchecked")
-    public static <E> RequestToObjectMapper<E> from(Class<E> cls) {
+    public static synchronized  <E> RequestToObjectMapper<E> from(Class<E> cls) {
         if (instances.containsKey(cls))
             return (RequestToObjectMapper<E>) instances.get(cls);
         RequestToObjectMapper<E> newMapper = new RequestToObjectMapper<>(cls);

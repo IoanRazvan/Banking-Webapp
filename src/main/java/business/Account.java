@@ -4,8 +4,8 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Calendar;
 import java.util.Date;
-import java.util.GregorianCalendar;
 
 @Entity
 @Table(name="BANK_ACCOUNT")
@@ -33,7 +33,7 @@ public class Account implements Serializable {
     private boolean enabled = true;
 
     public Account() {
-        creationDate = GregorianCalendar.getInstance().getTime();
+        creationDate = Calendar.getInstance().getTime();
     }
 
     public Account(User owner, Date creationDate, String currency, Float sold) {

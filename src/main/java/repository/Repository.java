@@ -28,6 +28,7 @@ public class Repository<T> {
         try {
             trans.begin();
             em.merge(entity);
+            em.flush();
             trans.commit();
         } finally {
             em.close();
