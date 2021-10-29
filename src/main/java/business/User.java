@@ -8,6 +8,7 @@ import validation.UniqueUsername;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
+import java.util.Objects;
 
 @Getter
 @Setter
@@ -68,4 +69,29 @@ public class User implements Serializable {
     public User(UserInformation userInfo) {
         this.userInfo = userInfo;
     }
+
+    public User(Integer id, UserInformation userInfo) {
+        this.id = id;
+        this.userInfo = userInfo;
+    }
+
+    public User(User otherUser) {
+        this.id = otherUser.id;
+        this.userInfo = new UserInformation(otherUser.userInfo);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        User user = (User) o;
+
+        if (enabled != user.enabled) return false;
+        if (!Objects.equals(id, user.id)) return false;
+        if (!Objects.equals(userInfo, user.userInfo)) return false;
+        if (!Objects.equals(accounts, user.accounts)) return false;
+        return Objects.equals(mainAccount, user.mainAccount);
+    }
+
 }

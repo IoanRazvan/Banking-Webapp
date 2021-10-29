@@ -22,8 +22,8 @@ import java.io.IOException;
 public class EditUserServlet extends HttpServlet {
     private final RequestToObjectMapper<UserInformation> mapper =  RequestToObjectMapper.from(UserInformation.class);
     private final UserRepository userRepo = new UserRepositoryImpl();
-    private final static String SUCCESS_MESSAGE = "Profile information updated successfully";
-    private final static String ERROR_MESSAGE = "Your profile was not updated due to an unknown error";
+    private static final String SUCCESS_MESSAGE = "Profile information updated successfully";
+    private static final String ERROR_MESSAGE = "Your profile was not updated due to an unknown error";
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

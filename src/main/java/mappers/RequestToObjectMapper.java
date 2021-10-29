@@ -44,7 +44,7 @@ public class RequestToObjectMapper<T> {
 
     private void callIfValuePresent(Method toCall, HttpServletRequest req, T inst) {
         String associatedFieldName = getFieldNameFromSetterName(toCall.getName());
-        Object value = req.getParameter(associatedFieldName);
+        String value = req.getParameter(associatedFieldName);
         Class<?> paramType = toCall.getParameterTypes()[0];
 
         if (value != null) {
@@ -61,7 +61,7 @@ public class RequestToObjectMapper<T> {
         return Character.toLowerCase(setterName.charAt(3)) + setterName.substring(4);
     }
 
-    private Object convertValue(Object value, Class<?> toClass) {
+    private Object convertValue(String value, Class<?> toClass) {
         try {
             return toClass.getConstructor(String.class).newInstance(value);
         } catch (NoSuchMethodException e) {

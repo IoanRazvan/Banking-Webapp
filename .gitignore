@@ -4,3 +4,4 @@ target/
 .project
 *.iml
 TODO.md
+/src/main/resources/META-INF/persistence.xml.proper
